@@ -38,15 +38,33 @@
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
                 <span class="menu-text"></span>
-                Quản lý bài viết
+                Quản lý Toà Nhà
                 <b class="arrow fa fa-angle-down"></b>
             </a>
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                    <a href="<c:url value='/quan-tri/bai-viet/danh-sach'/>">
+                    <a href="<c:url value='/admin/building/list'/>">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        DS bài viết
+                        DS Toà Nhà
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+        </li>
+          <li >
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text"></span>
+                Quản lý Khách Hàng
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li>
+                    <a href="<c:url value='/admin/customer/list'/>">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        DS Khách Hàng
                     </a>
                     <b class="arrow"></b>
                 </li>

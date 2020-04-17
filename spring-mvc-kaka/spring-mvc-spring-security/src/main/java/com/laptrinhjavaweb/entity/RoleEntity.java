@@ -12,22 +12,14 @@ import javax.persistence.Table;
 @Table(name = "role")
 public class RoleEntity extends BaseEntity {
 	
-	@Column(name = "name")
-	private String name;
-	
-	@Column(name = "code")
+	@Column
 	private String code;
+	
+	@Column
+	private String name;
 	
 	@ManyToMany(mappedBy = "roles")
     private List<UserEntity> users = new ArrayList<>();
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getCode() {
 		return code;
@@ -35,6 +27,14 @@ public class RoleEntity extends BaseEntity {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public List<UserEntity> getUsers() {

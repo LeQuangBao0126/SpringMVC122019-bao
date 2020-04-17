@@ -12,7 +12,6 @@ public class MyUser extends User {
 			Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 	}
-	
 	private String fullName;
 	
 	public String getFullName() {

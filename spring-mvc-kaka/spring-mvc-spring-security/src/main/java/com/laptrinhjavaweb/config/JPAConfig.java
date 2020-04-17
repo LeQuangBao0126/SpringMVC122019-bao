@@ -48,7 +48,7 @@ public class JPAConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/springmvcbasicfree");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/springmvc122019");
 		dataSource.setUsername("root");
 		dataSource.setPassword("1234");
 		return dataSource;
@@ -56,9 +56,11 @@ public class JPAConfig {
 	
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		//properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
+	
 		properties.setProperty("hibernate.hbm2ddl.auto", "none");
+		properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
+		properties.setProperty("hibernate.show_sql","true");
+		properties.setProperty("hibernate.format_sql", "true");
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		return properties;
 	}

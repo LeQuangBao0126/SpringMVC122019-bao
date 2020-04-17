@@ -4,7 +4,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractDTO<T> {
+import org.hibernate.metamodel.source.internal.IdentifierGeneratorResolver;
+
+public class AbstractDTO<T>   {
 	
 	private Long id;
 	private Timestamp createdDate;
@@ -22,6 +24,7 @@ public class AbstractDTO<T> {
 	private String alert;
 	private String message;
 	private String type;
+	private Integer limit;
 	
 	public Long getId() {
 		return id;
@@ -124,5 +127,11 @@ public class AbstractDTO<T> {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	public Integer getLimit() {
+		return limit;
+	}
+	public void setLimit(Integer limit) {
+		this.limit = limit;
 	}
 }

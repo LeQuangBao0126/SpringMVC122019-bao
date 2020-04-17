@@ -5,10 +5,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,28 +16,30 @@ import javax.persistence.Table;
 public class UserEntity extends BaseEntity {
 
 	@Column(name = "username")
-	private String userName;
+	private String username;
 
 	@Column(name = "password")
 	private String password;
 
 	@Column(name = "fullname")
-	private String fullName;
+	private String fullname;
 
-	@Column
-	private Integer status;
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), 
-								  inverseJoinColumns = @JoinColumn(name = "roleid"))
+	@ManyToMany()
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
 	private List<RoleEntity> roles = new ArrayList<>();
 
-	public String getUserName() {
-		return userName;
+	@ManyToMany(mappedBy = "staffs")
+	private List<BuildingEntity> buildings = new ArrayList<>();
+
+	@OneToMany(mappedBy = "staff")
+	private List<CustomerEntity> customers = new ArrayList<>();
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -48,20 +50,12 @@ public class UserEntity extends BaseEntity {
 		this.password = password;
 	}
 
-	public String getFullName() {
-		return fullName;
+	public String getFullname() {
+		return fullname;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
 
 	public List<RoleEntity> getRoles() {
@@ -71,4 +65,13 @@ public class UserEntity extends BaseEntity {
 	public void setRoles(List<RoleEntity> roles) {
 		this.roles = roles;
 	}
+
+	public List<BuildingEntity> getBuildings() {
+		return buildings;
+	}
+
+	public void setBuildings(List<BuildingEntity> buildings) {
+		this.buildings = buildings;
+	}
+
 }
